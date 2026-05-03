@@ -9,7 +9,7 @@ file_path = "data.csv"
 thetas_path = "thetas.csv"
 
 class PriceEstimation(BaseModel):
-	mileage: float
+	km: float
 	price: float
 
 def get_price_history():
@@ -22,7 +22,7 @@ def get_price_history():
 			for row in reader:
 				try:
 					estimation = PriceEstimation(**row)
-					mileages.append(estimation.mileage)
+					mileages.append(estimation.km)
 					prices.append(estimation.price)
 				except ValidationError:
 					invalidCount += 1
